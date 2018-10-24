@@ -23,7 +23,7 @@ class LruCache {
      *
      * @return void
      * @date 2018/10/24
-     * @author liuhuihui <liuhuihui@comteck.cn>
+     * @author yuanliandu <yuanliandu@qq.com>
      */
     public function getData(int $data) {
         if($node = $this->list->getNodeByData($data)) {

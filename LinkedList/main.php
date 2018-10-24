@@ -4,7 +4,12 @@ namespace LinkedList;
 require_once '../vendor/autoload.php';
 
 
-
+/**
+ * lru 调用
+ * @return void
+ * @date 2018/10/24
+ * @author yuanliandu <yuanliandu@qq.com>
+ */
 function lru() {
     $LRU = new LruCache();
     $LRU->getData(1);

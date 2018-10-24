@@ -7,7 +7,7 @@ class LNode {
      * 节点的数据域，存储数据
      * @var [type]
      * @date 2018/10/23
-     * @author liuhuihui <liuhuihui@comteck.cn>
+     * @author yuanliandu <yuanliandu@qq.com>
      */
     public $data;
 
@@ -15,7 +15,7 @@ class LNode {
      * 存储下个数据节点地址
      * @var [type]
      * @date 2018/10/23
-     * @author liuhuihui <liuhuihui@comteck.cn>
+     * @author yuanliandu <yuanliandu@qq.com>
      */
     public $next;
 

@@ -8,10 +8,6 @@ class SingleLinkedList extends LinkedList
     public $next;
     public $length;
 
-    // public function __construct(int $length=null)
-    // {
-    //     $this->length = $length;
-    // }
    
     /**
      * 寻找第i个节点
@@ -19,7 +15,7 @@ class SingleLinkedList extends LinkedList
      *
      * @return void
      * @date 2018/10/24
-     * @author liuhuihui <liuhuihui@comteck.cn>
+     * @author yuanliandu <yuanliandu@qq.com>
      */
     public function findNodeByIndex(int $index)
     {
@@ -44,7 +40,7 @@ class SingleLinkedList extends LinkedList
      *
      * @return void
      * @date 2018/10/23
-     * @author liuhuihui <liuhuihui@comteck.cn>
+     * @author yuanliandu <yuanliandu@qq.com>
      */
     public function getNodeDataByIndex(int $index)
     {
@@ -57,7 +53,7 @@ class SingleLinkedList extends LinkedList
      *
      * @return void
      * @date 2018/10/24
-     * @author liuhuihui <liuhuihui@comteck.cn>
+     * @author yuanliandu <yuanliandu@qq.com>
      */
     public function getNodeByData(int $data) {
         $head = $this->next;
@@ -80,7 +76,7 @@ class SingleLinkedList extends LinkedList
      *
      * @return void
      * @date 2018/10/23
-     * @author liuhuihui <liuhuihui@comteck.cn>
+     * @author yuanliandu <yuanliandu@qq.com>
      */
     public function insertNode(int $index, $data)
     {
@@ -97,7 +93,7 @@ class SingleLinkedList extends LinkedList
      *
      * @return void
      * @date 2018/10/23
-     * @author liuhuihui <liuhuihui@comteck.cn>
+     * @author yuanliandu <yuanliandu@qq.com>
      */
     public function deleteNodeByIndex(int $index)
     {
@@ -117,7 +113,7 @@ class SingleLinkedList extends LinkedList
      *
      * @return void
      * @date 2018/10/24
-     * @author liuhuihui <liuhuihui@comteck.cn>
+     * @author yuanliandu <yuanliandu@qq.com>
      */
     public function createListHead(array $data)
     {
@@ -137,7 +133,7 @@ class SingleLinkedList extends LinkedList
      *
      * @return void
      * @date 2018/10/24
-     * @author liuhuihui <liuhuihui@comteck.cn>
+     * @author yuanliandu <yuanliandu@qq.com>
      */
     public function createListTail(array $data)
     {
@@ -158,7 +154,7 @@ class SingleLinkedList extends LinkedList
      *
      * @return void
      * @date 2018/10/23
-     * @author liuhuihui <liuhuihui@comteck.cn>
+     * @author yuanliandu <yuanliandu@qq.com>
      */
     public function clearList()
     {
