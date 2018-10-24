@@ -1,0 +1,17 @@
+{
+    "name": "php/algorithm",
+    "description": "数据结构与算法之美的PHP实现",
+    "type": "project",
+    "authors": [
+        {
+            "name": "yuanliandu",
+            "email": "yuanliandu@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "LinkedList\\": "LinkedList/"
+        }
+    },
+    "require": {}
+}
