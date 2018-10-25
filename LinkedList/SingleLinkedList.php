@@ -6,9 +6,8 @@ class SingleLinkedList extends LinkedList
 {
     public $data;
     public $next;
-    public $length;
+    public $length = 0;
 
-   
     /**
      * 寻找第i个节点
      * @param int $index
@@ -19,7 +18,7 @@ class SingleLinkedList extends LinkedList
      */
     public function findNodeByIndex(int $index)
     {
-        if($index == 0) {
+        if ($index == 0) {
             return $this;
         }
         $head = $this->next;
@@ -55,20 +54,22 @@ class SingleLinkedList extends LinkedList
      * @date 2018/10/24
      * @author yuanliandu <yuanliandu@qq.com>
      */
-    public function getNodeByData(int $data) {
+    public function getNodeByData(int $data)
+    {
         $head = $this->next;
         $count = 1;
 
-        while($count <= $this->length && $data != $head->data) {
+        while ($count <= $this->length && $data != $head->data) {
             $head = $head->next;
-            $count ++;
+            $count++;
         }
-        if(is_null($head) || $data != $head->data || $count > $this->length) {
+        if (is_null($head) || $data != $head->data || $count > $this->length) {
             return false;
         }
         $head->index = $count;
         return $head;
     }
+
     /**
      * 在指定i位置，插入元素
      * @param int $i
@@ -84,7 +85,7 @@ class SingleLinkedList extends LinkedList
         $newNode = new LNode($data);//创建新的i元素
         $newNode->next = $iNode->next;//新元素i的next 指向旧的i
         $iNode->next = $newNode;//i-1元素的next 指向 新i
-        $this->length ++ ;
+        $this->length++ ;
     }
 
     /**
@@ -106,7 +107,6 @@ class SingleLinkedList extends LinkedList
         return $data;
     }
 
-    
     /**
      * 头插法
      * @param array $data 要初始化的数据
@@ -126,7 +126,6 @@ class SingleLinkedList extends LinkedList
         return $this;
     }
 
-    
     /**
      * 尾插法
      * @param array $data
@@ -163,10 +162,71 @@ class SingleLinkedList extends LinkedList
             $temp = $head->next;
             unset($head);
             $head = $temp;
-            $this->length --;
+            $this->length--;
         }
-        
+
         $this->next = null;
     }
 
+    /**
+     * 链表反转
+     * @return void
+     * @date 2018/10/25
+     * @author yuanliandu <yuanliandu@qq.com>
+     */
+    public function reverse()
+    {
+        $head = $this->next;
+        $reverse = new SingleLinkedList();
+        while ($head) {
+            $newNode = new LNode($head->data);
+            $newNode->next = $reverse->next;
+            $reverse->next = $newNode;
+            $reverse->length++ ;
+            $head = $head->next;
+        }
+        return $reverse;
+    }
+
+    /**
+     * 返回链表中部结点
+     * @return void
+     * @date 2018/10/25
+     * @author yuanliandu <yuanliandu@qq.com>
+     */
+    public function findMiddle()
+    {
+        if(!$this->next) {
+            return 'please init';
+        }
+        $slow = $this->next;
+        $fast = $this->next;
+        while ($this && $slow->next && $fast->next) {
+            $slow = $slow->next;
+            $fast = $fast->next->next;
+        }
+        return $slow;
+    }
+
+    /**
+     * 判断一个链表是否另一个 链表头部的一段
+     * @param SingleLinkedList $list
+     *
+     * @return bool
+     * @date 2018/10/25
+     * @author yuanliandu <yuanliandu@qq.com>
+     */
+    public function isSame(SingleLinkedList $list)
+    {
+        $head = $this->next;
+        $reverseHead = $list->next;
+        while ($head && $reverseHead) {
+            if ($head->data != $reverseHead->data) {
+                return false;
+            }
+            $head = $head->next;
+            $reverseHead = $reverseHead->next;
+        }
+        return true;
+    }
 }

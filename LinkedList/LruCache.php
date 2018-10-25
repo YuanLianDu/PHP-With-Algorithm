@@ -19,7 +19,8 @@ class LruCache {
      *  判断链表是否已满，
      *  满了，删除尾部元素；
      *  不满，插入到头部；
-     * @param int $data
+     * @param int $datalsdfsc
+     * 
      *
      * @return void
      * @date 2018/10/24
