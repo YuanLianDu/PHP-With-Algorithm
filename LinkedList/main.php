@@ -215,7 +215,7 @@ function mergeOrderList(LinkedList $listOne, LinkedList $listTwo)
 function josephusCircleList(LinkedList $circle,int $total,int $m) {
     $current = $circle;
 
-    while($total--) {
+    while($current != $current->next) {
         for($i=1;$i<$m-1;$i++) {
             $current = $current->next;
         }
