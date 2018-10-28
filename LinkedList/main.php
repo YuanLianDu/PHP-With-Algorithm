@@ -202,6 +202,16 @@ function mergeOrderList(LinkedList $listOne, LinkedList $listTwo)
     return $list;
 }
 
+/**
+ * 约瑟夫循环链表
+ * @param LinkedList $circle
+ * @param int $total
+ * @param int $m
+ *
+ * @return void
+ * @date 2018/10/28
+ * @author yuanliandu <yuanliandu@qq.com>
+ */
 function josephusCircleList(LinkedList $circle,int $total,int $m) {
     $current = $circle;
 
