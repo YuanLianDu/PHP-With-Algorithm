@@ -52,6 +52,7 @@ function isPalindromeByReserve(string $str)
 /**
  * 比较是否是回文
  * 找到中间节点(通过慢指针、快指针) 反转右半部分，然后与链表相比判断是否是回文
+ * 时间复杂度O(n)
  * @param string $str
  *
  * @return bool
@@ -83,6 +84,7 @@ function isPalindrome(string $str)
 
 /**
  * 检车链表中是否有环
+ * 时间复杂度O(n)
  * @param LinkedList $list
  *
  * @return void
@@ -137,7 +139,7 @@ function createLiknedListWithCircle(array $data, int $circleHead)
  * 合并有序链表
  * @param LinkedList $listOne
  * @param LinkedList $listTwo
- *
+ * 时间复杂度O(n)
  * @return void
  * @date 2018/10/28
  * @author yuanliandu <yuanliandu@qq.com>
@@ -175,6 +177,7 @@ function mergeOrderList(LinkedList $listOne, LinkedList $listTwo)
  * 快指针，先行n；
  * 快慢指针，一起前行；
  * 当快指针先到达终点时，慢指着到达
+ * 时间复杂度O(n)
  * @param LinkedList $list
  * @param int $index
  *
@@ -198,6 +201,22 @@ function mergeOrderList(LinkedList $listOne, LinkedList $listTwo)
 
     return $list;
 }
+
+function josephusCircleList(LinkedList $circle,int $total,int $m) {
+    $current = $circle;
+
+    while($total--) {
+        for($i=1;$i<$m-1;$i++) {
+            $current = $current->next;
+        }
+        $temp = $current->next;
+        printf("%d->", $temp->data);
+        $current->next = $temp->next;
+        unset($temp);
+        $current = $current->next;
+    }
+    return $current;
+}
 // lru();//链表实现lru
 
 
@@ -207,7 +226,7 @@ function mergeOrderList(LinkedList $listOne, LinkedList $listTwo)
 /**
  * 链表反转
  */
-$singleList = (new SingleLinkedList())->createListTail([1,2,3,4,5]);
+// $singleList = (new SingleLinkedList())->createListTail([1,2,3,4,5]);
 // var_dump($singleList->reverse());
 // $singleList->insertNode(3,9);
 // var_dump($singleList);
@@ -232,5 +251,15 @@ $singleList = (new SingleLinkedList())->createListTail([1,2,3,4,5]);
 // $listTwo = (new SingleLinkedList())->createListTail([2, 4, 9]);
 // var_dump(mergeOrderList($listOne, $listTwo));
 
-$listOne = (new SingleLinkedList())->createListTail([1, 3, 5, 8]);
-var_dump(removeNthNodeFromEndOfList($listOne,2));
+/**
+ * 删除链表中倒数第n个结点
+ */
+// $listOne = (new SingleLinkedList())->createListTail([1, 3, 5, 8]);
+// var_dump(removeNthNodeFromEndOfList($listOne,2));
+
+/**
+ * 
+ */
+$circleList  =  (new CircleLinkedList())->init([1,2,3,4,5,6,7]);
+// var_dump($circleList);die();
+var_dump(josephusCircleList($circleList,7,3));

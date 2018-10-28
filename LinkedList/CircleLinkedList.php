@@ -16,6 +16,8 @@ class CircleLinkedList extends LinkedList {
      * @author yuanliandu <yuanliandu@qq.com>
      */
     public function init(array $data) {
+        $this->data = $data[0];
+        unset($data[0]);
         $rear = $this;
         $rear->next = $this;
         foreach ($data as $key => $value) {

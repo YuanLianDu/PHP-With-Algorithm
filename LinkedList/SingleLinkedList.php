@@ -173,6 +173,7 @@ class SingleLinkedList extends LinkedList
 
     /**
      * 链表反转
+     * 与初始化链表头部插入法相似
      * @return void
      * @date 2018/10/25
      * @author yuanliandu <yuanliandu@qq.com>
