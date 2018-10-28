@@ -8,6 +8,7 @@ class SingleLinkedList extends LinkedList
     public $next;
     public $length = 0;
 
+
     /**
      * 寻找第i个节点
      * @param int $index
@@ -228,5 +229,16 @@ class SingleLinkedList extends LinkedList
             $reverseHead = $reverseHead->next;
         }
         return true;
+    }
+
+    public function inserAfterNode($originNode,$data) {
+        if(is_null($originNode)){
+            return false;
+        }
+        $new = new LNode($data);
+        $new->next = $originNode->next;
+        $originNode->next = $new;
+
+        return $new;
     }
 }

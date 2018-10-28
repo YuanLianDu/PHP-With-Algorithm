@@ -2,8 +2,6 @@
 
 namespace LinkedList;
 
-
-
 require_once '../vendor/autoload.php';
 
 /**
@@ -44,14 +42,11 @@ function isPalindromeByReserve(string $str)
     /**
      * 循环比较是否是回文
      */
-    if($strList->isSame($reverseStrList)) {
+    if ($strList->isSame($reverseStrList)) {
         print('the string is palindrome');
-
-    }else {
+    } else {
         print('the string is not palindrome');
     }
-   
-
 }
 
 /**
@@ -65,9 +60,9 @@ function isPalindromeByReserve(string $str)
  */
 function isPalindrome(string $str)
 {
-     /**
-     * 将字符串，用链表存储
-     */
+    /**
+    * 将字符串，用链表存储
+    */
     $arr = str_split($str);
     $strList = (new SingleLinkedList())->createListTail($arr); //初始化O(n)
 
@@ -79,13 +74,11 @@ function isPalindrome(string $str)
     /**
      * 循环比较是否是回文
      */
-    if($strList->isSame($reverseRight)) {
+    if ($strList->isSame($reverseRight)) {
         print('the string is palindrome');
-
-    }else {
+    } else {
         print('the string is not palindrome');
     }
-    
 }
 
 /**
@@ -96,13 +89,14 @@ function isPalindrome(string $str)
  * @date 2018/10/25
  * @author yuanliandu <yuanliandu@qq.com>
  */
-function checkIsHaveCircle(LinkedList $list) {
+function checkIsHaveCircle(LinkedList $list)
+{
     $slow = $list->next;
     $fast = $list->next;
-    while($fast&& $fast->next) {
+    while ($fast && $fast->next) {
         $slow = $slow->next;
-        $fast =  $fast->next->next;
-        if($slow == $fast) {
+        $fast = $fast->next->next;
+        if ($slow == $fast) {
             return true;
         }
     }
@@ -118,15 +112,15 @@ function checkIsHaveCircle(LinkedList $list) {
  * @date 2018/10/25
  * @author yuanliandu <yuanliandu@qq.com>
  */
-function createLiknedListWithCircle(array $data,int $circleHead) {
-
+function createLiknedListWithCircle(array $data, int $circleHead)
+{
     $linkedList = new LinkedList();
     $head = $linkedList;
-    for($i=1;$i<$circleHead;$i++) {
-        $newNode = new LNode($data[$i-1]);
+    for ($i = 1;$i < $circleHead;$i++) {
+        $newNode = new LNode($data[$i - 1]);
         $head->next = $newNode;
         $head = $newNode;
-        unset($data[$i-1]);
+        unset($data[$i - 1]);
     }
     $temp = $head;
 
@@ -137,10 +131,42 @@ function createLiknedListWithCircle(array $data,int $circleHead) {
     }
     $head->next = $temp;
     return $linkedList;
-}   
+}
 
-function  mergeOrderList() {
+/**
+ * 合并有序链表
+ * @param LinkedList $listOne
+ * @param LinkedList $listTwo
+ *
+ * @return void
+ * @date 2018/10/28
+ * @author yuanliandu <yuanliandu@qq.com>
+ */
+function mergeOrderList(LinkedList $listOne, LinkedList $listTwo)
+{
+    $result = new SingleLinkedList;
+    $head = $result;
+    $one = $listOne->next;
+    $two = $listTwo->next;
+    while ($one && $two) {
+        if ($one->data < $two->data) {
+            $head = $result->inserAfterNode($head, $one->data);
+            $one = $one->next;
+        } else {
+            $head = $result->inserAfterNode($head, $two->data);
+            $two = $two->next;
+        }
+    }
+    while ($one) {
+        $head = $result->inserAfterNode($head, $one->data);
+        $one = $one->next;
+    }
+    while ($two) {
+        $head = $result->inserAfterNode($head, $two->data);
+        $two = $two->next;
+    }
 
+    return $result;
 }
 // lru();//链表实现lru
 
@@ -160,3 +186,10 @@ function  mergeOrderList() {
 // $listWithCircle = createLiknedListWithCircle([1,2,3,4,5],3);
 // var_dump(checkIsHaveCircle($listWithCircle));
 // var_dump(checkIsHaveCircle($singleList));
+
+/**
+ * 两个有序链表合并
+ */
+// $listOne = (new SingleLinkedList())->createListTail([1, 3, 5, 8]);
+// $listTwo = (new SingleLinkedList())->createListTail([2, 4, 9]);
+// var_dump(mergeOrderList($listOne, $listTwo));
