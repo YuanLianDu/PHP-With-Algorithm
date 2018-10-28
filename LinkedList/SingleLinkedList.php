@@ -83,9 +83,10 @@ class SingleLinkedList extends LinkedList
     public function insertNode(int $index, $data)
     {
         $iNode = $this->findNodeByIndex($index - 1);//找到i-1元素
-        $newNode = new LNode($data);//创建新的i元素
-        $newNode->next = $iNode->next;//新元素i的next 指向旧的i
-        $iNode->next = $newNode;//i-1元素的next 指向 新i
+        // $newNode = new LNode($data);//创建新的i元素
+        // $newNode->next = $iNode->next;//新元素i的next 指向旧的i
+        // $iNode->next = $newNode;//i-1元素的next 指向 新i
+        $this->inserAfterNode($iNode,$data);
         $this->length++ ;
     }
 
@@ -139,9 +140,10 @@ class SingleLinkedList extends LinkedList
     {
         $tail = $this;//tail与this指向同一个变量地址，记录最后链表尾元素
         foreach ($data as $key => $value) {
-            $node = new LNode($value);
-            $tail->next = $node;//
-            $tail = $node;//tail又与新的node指向同一个变量的地址
+            // $node = new LNode($value);
+            // $tail->next = $node;//
+            // $tail = $node;//tail又与新的node指向同一个变量的地址
+            $tail = $this->inserAfterNode($tail,$value);
             $this->length++;
         }
         $tail->next = null;

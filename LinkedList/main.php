@@ -170,9 +170,17 @@ function mergeOrderList(LinkedList $listOne, LinkedList $listTwo)
 }
 // lru();//链表实现lru
 
+
 //isPalindromeByReserve('abccba');//回文的判断-反转链表
 // isPalindrome('abccb');//回文的判断-快慢指针
 
+/**
+ * 链表反转
+ */
+$singleList = (new SingleLinkedList())->createListTail([1,2,3,4,5]);
+// var_dump($singleList->reverse());
+// $singleList->insertNode(3,9);
+// var_dump($singleList);
 /**
  * 圆形链表创建
  */
