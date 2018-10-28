@@ -168,6 +168,36 @@ function mergeOrderList(LinkedList $listOne, LinkedList $listTwo)
 
     return $result;
 }
+
+/**
+ * 删除倒数第n个节点
+ * 快慢指针
+ * 快指针，先行n；
+ * 快慢指针，一起前行；
+ * 当快指针先到达终点时，慢指着到达
+ * @param LinkedList $list
+ * @param int $index
+ *
+ * @return void
+ * @date 2018/10/28
+ * @author yuanliandu <yuanliandu@qq.com>
+ */
+ function removeNthNodeFromEndOfList(LinkedList $list,int $index) {
+    $slow = $list->next;
+    $fast = $list->next;
+    for($i=0;$i<$index;$i++) {
+        $fast = $fast->next;
+    }
+    while($fast->next) {
+        $slow = $slow->next;
+        $fast = $fast->next;
+    }
+    $temp = $slow->next;
+    $slow->next = $temp->next;
+    unset($temp);
+
+    return $list;
+}
 // lru();//链表实现lru
 
 
@@ -201,3 +231,6 @@ $singleList = (new SingleLinkedList())->createListTail([1,2,3,4,5]);
 // $listOne = (new SingleLinkedList())->createListTail([1, 3, 5, 8]);
 // $listTwo = (new SingleLinkedList())->createListTail([2, 4, 9]);
 // var_dump(mergeOrderList($listOne, $listTwo));
+
+$listOne = (new SingleLinkedList())->createListTail([1, 3, 5, 8]);
+var_dump(removeNthNodeFromEndOfList($listOne,2));
