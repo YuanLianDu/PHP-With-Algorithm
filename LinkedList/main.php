@@ -139,11 +139,24 @@ function createLiknedListWithCircle(array $data,int $circleHead) {
     return $linkedList;
 }   
 
-// lru();
-// isPalindrome('abccb');
+function  mergeOrderList() {
+
+}
+// lru();//链表实现lru
+
+//isPalindromeByReserve('abccba');//回文的判断-反转链表
+// isPalindrome('abccb');//回文的判断-快慢指针
+
+/**
+ * 圆形链表创建
+ */
 // $circle = new CircleLinkedList();
 // var_dump($circle->init([1,2,3]));
-$singleList = (new SingleLinkedList())->createListTail([1,2,3,4,5]);
-$listWithCircle = createLiknedListWithCircle([1,2,3,4,5],3);
-var_dump(checkIsHaveCircle($listWithCircle));
-var_dump(checkIsHaveCircle($singleList));
+
+/**
+ * 链表中环的检测
+ */
+// $singleList = (new SingleLinkedList())->createListTail([1,2,3,4,5]);
+// $listWithCircle = createLiknedListWithCircle([1,2,3,4,5],3);
+// var_dump(checkIsHaveCircle($listWithCircle));
+// var_dump(checkIsHaveCircle($singleList));
