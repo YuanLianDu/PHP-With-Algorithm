@@ -201,7 +201,7 @@ class SingleLinkedList extends LinkedList
         }
         $slow = $this->next;
         $fast = $this->next;
-        while ($this && $slow->next && $fast->next) {
+        while ($fast && $fast->next) {
             $slow = $slow->next;
             $fast = $fast->next->next;
         }
