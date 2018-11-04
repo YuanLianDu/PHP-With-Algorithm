@@ -1,5 +1,4 @@
 <?php
-
 namespace Stack;
 
 abstract class Stack {
