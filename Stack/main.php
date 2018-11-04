@@ -40,9 +40,12 @@ function testLinkedListStack()
     for ($i = 1;$i <= 10;$i++) {
         $stack->push($i);
     }
+    var_dump($stack);
     for ($i = 0;$i < 5;$i++) {
         print($stack->pop());
     }
+    var_dump($stack);
+    
     var_dump($stack->length());
     var_dump($stack->getTop());
     var_dump($stack->clear());
@@ -93,5 +96,5 @@ function shareTheStack()
     
 }
 
-// testLinkedListStack();
-shareTheStack();
+testLinkedListStack();
+// shareTheStack();

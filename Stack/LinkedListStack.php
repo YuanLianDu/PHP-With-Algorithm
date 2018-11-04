@@ -11,7 +11,7 @@ class LinkedListStack extends Stack
     public $length;
 
     public function __construct() {
-        $this->top = new LNode();
+        $this->top = null;
         $this->length = 0;
     }
     
@@ -32,14 +32,14 @@ class LinkedListStack extends Stack
 
     public function getTop()
     {
-        return $this->top->next->data;
+        return $this->top->data;
     }
 
     public function push($item)
     {
         $node = new LNode($item);
-        $node->next = $this->top->next;
-        $this->top->next = $node;
+        $node->next = $this->top;
+        $this->top = $node;
         $this->length++;
     }
 
@@ -49,10 +49,10 @@ class LinkedListStack extends Stack
             print('stack is empty');
             return false;
         }
-        $temp = $this->top->next;
-        $this->top->next = $temp->next;
+        $temp = $this->top->data;
+        $this->top = $this->top->next;
         $this->length --;
-        return $temp->data;
+        return $temp;
     }
 
     public function length()
