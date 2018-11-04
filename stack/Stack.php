@@ -3,7 +3,7 @@ namespace Stack;
 
 abstract class Stack {
     
-abstract public function init(int $maxSize);
+// abstract public function init(int $maxSize);
 
 // abstract public function destroy();
 abstract public function clear();

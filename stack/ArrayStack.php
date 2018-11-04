@@ -20,8 +20,7 @@ class ArrayStack extends Stack
      * @date 2018/11/04
      * @author yuanliandu <yuanliandu@qq.com>
      */
-    public function init(int $maxSize)
-    {
+    public function __construct(int $maxSize) {
         $this->maxSize = $maxSize;
         $this->top = -1;
         $this->data = new SplFixedArray($this->maxSize);
