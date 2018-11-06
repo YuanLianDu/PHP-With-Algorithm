@@ -11,7 +11,8 @@
     "autoload": {
         "psr-4": {
             "LinkedList\\": "LinkedList/",
-            "Stack\\": "Stack/"
+            "Stack\\": "Stack/",
+            "Queue\\": "Queue/"
         }
     },
     "require": {}
