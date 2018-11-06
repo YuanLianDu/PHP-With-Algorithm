@@ -6,6 +6,9 @@ use SplFixedArray;
 
 class DoubleStack
 {
+    /**
+     * 共享栈
+     */
     public $data;
     public $maxSize;
     public $top;

@@ -27,7 +27,7 @@ class LinkedListStack extends Stack
 
     public function isEmpty()
     {
-        return $this->length >= 0 ? false : true;
+        return $this->length > 0 ? false : true;
     }
 
     public function getTop()

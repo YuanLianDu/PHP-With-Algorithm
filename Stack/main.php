@@ -2,6 +2,9 @@
 
 namespace Stack;
 
+use Stack\LinkedListStack;
+use stack\Stack;
+
 require_once '../vendor/autoload.php';
 
 /**
@@ -96,5 +99,53 @@ function shareTheStack()
     
 }
 
-testLinkedListStack();
+/**
+ *  实现先进先出，模拟队列
+ * @date 2018/11/06
+ * @author yuanliandu <yuanliandu@qq.com>
+ */
+
+ function  testQueuee() {
+    $in = new LinkedListStack();
+    $out = new LinkedListStack();
+    
+    for($i=0;$i<5;$i++) {
+        $in->push($i);
+    }
+
+    for ($i=0; $i < 3; $i++) { 
+        var_dump(Dequeue($in,$out));
+    }
+
+ }
+
+
+/**
+ * 出队列
+ * @param Stack $in
+ * @param Stack $out
+ *
+ * @return void
+ * @date 2018/11/06
+ * @author yuanliandu <yuanliandu@qq.com>
+ */
+function DeQueue(Stack $in,Stack $out){
+
+    
+    if($in->isEmpty() && $out->isEmpty()) {
+        printf('the queue is empty');
+        return false;
+    }
+    
+    if($out->isEmpty()) {
+        while($in->length() > 1) {
+            $out->push($in->pop());
+        }
+       return $in->pop();
+    }else {
+        return $out->pop();
+    }
+}
+testQueuee();
+// testLinkedListStack();
 // shareTheStack();
