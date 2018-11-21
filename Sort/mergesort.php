@@ -10,25 +10,45 @@
         ['value' => 4], 
         ['value' => 5], 
         ['value' => 6,'index'=>1], 
-        ['value' => 6,'index'=>2], 
+        ['value' => 6,'index'=>2], //index，用来测试是否稳定
         ['value' => 7], 
         ['value' => 8]];
  $length = count($numbers);
+
  var_dump(separate($numbers, 0, $length - 1));
 
+ /**
+  * 先将数组拆到最小单位
+  * @param array $numbers
+  * @param [type] $start
+  * @param [type] $end
+  *
+  * @return void
+  * @date 2018/11/21
+  * @author yuanliandu <yuanliandu@qq.com>
+  */
  function separate(array $numbers, $start, $end)
  {
      if ($start >= $end) {
          return [$numbers[$end]];
      }
 
-     $middle = (int)(($start + $end) / 2);
+     $middle = (int)(($start + $end) / 2);//遇到奇数，取整；左边多一个，右边多一个无所谓；
 
-     $left = separate($numbers, $start, $middle);
+     $left = separate($numbers, $start, $middle);//需要理解递归的意义
      $right = separate($numbers, $middle + 1, $end);
-     return merge($left, $right);
+     return merge($left, $right);//调用合并函数
  }
 
+ /**
+  * 合并
+  * @param array $left
+  * @param array $right
+  *
+  * @return void
+  * @date 2018/11/21
+  * @author yuanliandu <yuanliandu@qq.com>
+  */
 function merge(array $left, array $right)
 {
     $temp = [];
