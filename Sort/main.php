@@ -74,20 +74,27 @@ function SelectionSort(array $numbers) {
     for($i=0;$i<$count;$i++) {
         
         $minIndex = $count-1;
-        
+        /**
+         * 逆序查询
+         * 找到未排序区间最小的元素
+         * 并记录位置
+         */
         for($j=$minIndex;$j>$i;$j--) {
             if($numbers[$minIndex] > $numbers[$j-1]) {
                 $minIndex = $j-1;
             }
         }
        
+        /**
+         * 交换元素
+         */
         $temp = $numbers[$i];
         $numbers[$i] = $numbers[$minIndex];
         $numbers[$minIndex] = $temp;
     } 
     return $numbers;
 }
-$numbers = [2,4,5,3,1,6];
+$numbers = [2,4,6,7,9,5,3,1,6];
 // var_dump(BubbleSort($numbers));
 // var_dump(InsertionSort($numbers));
 var_dump(SelectionSort($numbers));
