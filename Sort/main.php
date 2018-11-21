@@ -19,9 +19,8 @@
                 $numbers[$j+1] = $temp;
                 $flag = true;
             }
-            var_dump($i .'-'.$j);
        }
-
+    // 优化：每次冒泡，至少发生一次交换，如果没有发生交换，则表示已满足大小关系，冒泡即可停止
        if(!$flag) break;
        
     }
@@ -43,8 +42,8 @@ function InsertionSort(array $numbers) {
     if(1 >= $count) return $numbers;
 
     for($i=1;$i<$count;$i++) {
-        $value = $numbers[$i];
-        $j = $i - 1;
+        $value = $numbers[$i];//代表未排序区间
+        $j = $i - 1;//代表已排序区间
         for(;$j>=0;$j--) {
             if($value < $numbers[$j]) {
                 $numbers[$j+1] = $numbers[$j];
@@ -96,5 +95,5 @@ function SelectionSort(array $numbers) {
 }
 $numbers = [2,4,6,7,9,5,3,1,6];
 // var_dump(BubbleSort($numbers));
-// var_dump(InsertionSort($numbers));
-var_dump(SelectionSort($numbers));
+var_dump(InsertionSort($numbers));
+// var_dump(SelectionSort($numbers));
