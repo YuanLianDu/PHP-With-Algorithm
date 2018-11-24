@@ -1,11 +1,11 @@
 <?php
 
-$numbers = [5,4,3,4,1,2,3];
+$numbers = [5,4,3,2,1,6];
 $length = count($numbers);
 $start = 0;
 $end = $length - 1;
 quickSort($numbers,$start,$end);
-var_dump($numbers);
+
 
 function quickSort(&$numbers,$start,$end) {
     if($start >= $end) {
@@ -13,6 +13,7 @@ function quickSort(&$numbers,$start,$end) {
     }
 
     $index = departion($numbers,$start,$end);
+    
     quickSort($numbers,$start,$index-1);
     quickSort($numbers,$index+1,$end);
 }
@@ -31,5 +32,6 @@ function departion(&$numbers,$start,$end) {
     }
     $numbers[$end] = $numbers[$i];
     $numbers[$i] = $pivot;
+    
     return $i;
 }
