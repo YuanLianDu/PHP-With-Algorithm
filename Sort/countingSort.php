@@ -8,6 +8,15 @@
 $score = [0,1,5,3,2,4,1,2,4,2,1,4,4];
 
 var_dump(countingSort($score));die();
+
+/**
+ * 计数排序
+ * @param array $score
+ *
+ * @return void
+ * @date 2018/11/26
+ * @author yuanliandu <yuanliandu@qq.com>
+ */
 function countingSort(array $score) {
 
     $length = count($score);
