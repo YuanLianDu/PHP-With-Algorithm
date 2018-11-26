@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * 快速排序
+ */
 $numbers = [5,4,3,2,1,6];
 $length = count($numbers);
 $start = 0;

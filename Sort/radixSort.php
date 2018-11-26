@@ -1,6 +1,8 @@
 <?php
 
-
+/**
+ * 基数排序
+ */
 $numbers = [
     1234,
     4321,
@@ -8,23 +10,25 @@ $numbers = [
     31,
     412,
 ];
-$maxLength = 0;
-foreach($numbers as $value) {
-    $length = strlen((string)$value);
-    if($maxLength < $length) {
-        $maxLength = $length;
-    }
+$max = (string) max($numbers);
+$loop =  strlen($max);
+
+for($i=0;$i<$loop;$i++) {
+    radixSort($numbers,$i);
 }
 
-for($i=1;$i<=$maxLength;$i++) {
-    $children = [];
+function radixSort(array &$numbers,$loop) {
+
+    $divisor = pow(10,$loop);
+    $arr = (new \SplFixedArray(10))->toArray();
     foreach ($numbers as $key => $value) {
-        $value = (string)$value;
-        if($i > strlen($value)) {
-            $children[] = 0;
-        }else {
-            $children[] = (int)substr($value,0-$i,1);
+        $index = ($value/$divisor)%10;
+        $arr[$index][] = $value;
+    }
+    $k=0;
+    for($i=0;$i<10;$i++) {
+        while(count($arr[$i]) > 0) {
+            $numbers[$k++] = array_shift($arr[$i]);
         }
     }
-    var_dump($children);
 }
